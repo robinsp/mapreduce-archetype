@@ -36,15 +36,19 @@ this starts an interactive session where you enter:
  - a java package
  - the name of your main class
  
+Run `mvn package` to build a jar, and take a look at run.sh.sample for how to execute your job. 
 
- Example run
- -------------------------------------------------------
+
+Example run
+-------------------------------------------------------
  The example below creates a project directory in `~/src/mapreduce` and 
  create source files (with tests) named: 
  
   - com.robinspainhour.example.Sample
   - com.robinspainhour.example.SampleMapper
   - com.robinspainhour.example.SampleReducer
+
+Sample run: 
 
     mybox:~$ cd ~/src
     mybox:~$ mvn archetype:generate -DarchetypeCatalog=local
