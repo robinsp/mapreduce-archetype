@@ -17,6 +17,12 @@
       <includes>
         <include>**/*.java</include>
       </includes>
-    </fileSet>   
+    </fileSet>
+    <fileSet filtered="true" packaged="false" encoding="UTF-8">
+    	<directory></directory>
+      <includes>
+        <include>.gitignore</include>
+      </includes>
+    </fileSet>
   </fileSets>
 </archetype-descriptor>
