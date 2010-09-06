@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Example of how you would execute your task during development
+
+# In the project root:
+hadoop jar ./target/${artifactId}.jar ${package}.${main-class-name} /tmp/${artifactId}/input /tmp/${artifactId}/output

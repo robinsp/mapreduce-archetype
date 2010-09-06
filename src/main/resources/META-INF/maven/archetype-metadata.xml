@@ -22,6 +22,7 @@
     	<directory></directory>
       <includes>
         <include>.gitignore</include>
+        <include>run.sh.sample</include>
       </includes>
     </fileSet>
   </fileSets>
