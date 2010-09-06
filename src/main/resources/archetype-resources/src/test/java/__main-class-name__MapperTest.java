@@ -11,19 +11,19 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 
-import org.apache.hadoop.${artifactId}.Mapper;
-import org.apache.hadoop.mrunit.${artifactId}.MapDriver;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mrunit.mapreduce.MapDriver;
 
-import ${package}.MapreduceMapper;
+import ${package}.${main-class-name}Mapper;
 
-public class MapreduceMapperTest extends TestCase {
+public class ${main-class-name}MapperTest extends TestCase {
 	private static final IntWritable ONE_OCCURANCE = new IntWritable(1);
 	private Mapper<LongWritable, Text, Text, IntWritable> mapper;
     private MapDriver<LongWritable, Text, Text, IntWritable> driver;
 
     @Before 
     public void setUp() {
-        mapper = new MapreduceMapper();
+        mapper = new ${main-class-name}Mapper();
         driver = new MapDriver<LongWritable, Text, Text, IntWritable>(mapper);
     }
 

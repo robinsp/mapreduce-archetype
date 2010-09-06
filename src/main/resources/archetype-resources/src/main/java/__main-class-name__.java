@@ -4,14 +4,15 @@
 package ${package};
 
 import org.apache.hadoop.conf.Configured;
+
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.${artifactId}.Job;
-import org.apache.hadoop.${artifactId}.lib.input.FileInputFormat;
-import org.apache.hadoop.${artifactId}.lib.input.TextInputFormat;
-import org.apache.hadoop.${artifactId}.lib.output.FileOutputFormat;
-import org.apache.hadoop.${artifactId}.lib.output.TextOutputFormat;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
@@ -19,15 +20,15 @@ public class ${main-class-name} extends Configured implements Tool {
 	
     public int run(String [] args) throws Exception {
         Job job = new Job(getConf());
-        job.setJarByClass(Mapreduce.class);
+        job.setJarByClass(${main-class-name}.class);
         job.setJobName("${artifactId}");
 	
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 	
-        job.setMapperClass(MapreduceMapper.class);
-        job.setCombinerClass(MapreduceReducer.class);
-        job.setReducerClass(MapreduceReducer.class);
+        job.setMapperClass(${main-class-name}Mapper.class);
+        job.setCombinerClass(${main-class-name}Reducer.class);
+        job.setReducerClass(${main-class-name}Reducer.class);
 	
         job.setInputFormatClass(TextInputFormat.class);
         job.setOutputFormatClass(TextOutputFormat.class);
@@ -40,7 +41,7 @@ public class ${main-class-name} extends Configured implements Tool {
     }
 	
     public static void main(String[] args) throws Exception {
-        int ret = ToolRunner.run(new Mapreduce(), args);
+        int ret = ToolRunner.run(new ${main-class-name}(), args);
         System.exit(ret);
     }
 }

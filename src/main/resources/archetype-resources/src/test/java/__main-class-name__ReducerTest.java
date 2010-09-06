@@ -8,20 +8,20 @@ import junit.framework.TestCase;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.${artifactId}.Reducer;
-import org.apache.hadoop.mrunit.${artifactId}.ReduceDriver;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mrunit.mapreduce.ReduceDriver;
 import org.junit.Before;
 import org.junit.Test;
 
-import ${package}.MapreduceReducer;
+import ${package}.${main-class-name}Reducer;
 
-public class MapreduceReducerTest extends TestCase {
+public class ${main-class-name}ReducerTest extends TestCase {
 	private Reducer<Text, IntWritable, Text, IntWritable> reducer;
 	private ReduceDriver<Text, IntWritable, Text, IntWritable> driver;
 	
 	@Before
 	public void setUp() {
-		reducer = new MapreduceReducer();
+		reducer = new ${main-class-name}Reducer();
 		driver = new ReduceDriver<Text, IntWritable, Text, IntWritable>(reducer);
 	}
 	
