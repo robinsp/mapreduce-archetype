@@ -15,7 +15,7 @@ import org.apache.hadoop.${artifactId}.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-public class Mapreduce extends Configured implements Tool {
+public class ${main-class-name} extends Configured implements Tool {
 	
     public int run(String [] args) throws Exception {
         Job job = new Job(getConf());
