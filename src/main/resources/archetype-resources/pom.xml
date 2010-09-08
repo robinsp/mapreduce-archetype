@@ -8,7 +8,7 @@
 	<version>${version}</version>
 	<name>${artifactId}</name>
 	<url>http://maven.apache.org</url>
-	
+
 	<repositories>
 		<repository>
 			<id>cloudera</id>
@@ -21,13 +21,14 @@
 			<groupId>com.cloudera.hadoop</groupId>
 			<artifactId>hadoop-core</artifactId>
 			<version>0.20.2-320</version>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>com.cloudera.hadoop</groupId>
 			<artifactId>hadoop-mrunit</artifactId>
 			<version>0.20.2-320</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -48,6 +49,30 @@
 					<source>1.6</source>
 					<target>1.6</target>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.2-beta-5</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/main/assembly/job.xml</descriptor>
+					</descriptors>
+					<archive>
+						<manifest>
+							<mainClass>${package}.${main-class-name}</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

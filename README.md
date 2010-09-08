@@ -36,8 +36,10 @@ this starts an interactive session where you enter:
  - a java package
  - the name of your main class
  
-Run `mvn package` to build a jar, and take a look at run.sh.sample for how to execute your job. 
+Run `mvn package` to build your job, and take a look at run.sh.sample for how to execute your job. 
 
+Any maven dependencies *with runtime scope* you add to your newly created pom.xml will be included
+in the resulting job jar. 
 
 Example run
 -------------------------------------------------------
